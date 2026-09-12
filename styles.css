@@ -1,0 +1,51 @@
+html { scroll-behavior: smooth; }
+body { overflow-x: hidden; font-family: 'Be Vietnam Pro', Arial, sans-serif; }
+.hero { aspect-ratio: 1871 / 693; min-height: 0; }
+.hero-image { object-fit: contain; object-position: center; background: #090A14; }
+.section-title, h1, h2, h3, h4, p, a, button, input, summary { font-family: 'Be Vietnam Pro', Arial, sans-serif; }
+.bg-cobaltLight\/20 { background-color: #dbe8f5 !important; }
+.bg-cobalt { background-color: #12365a !important; }
+#program, #campus-life, #register, #contact { background-color: #12365a !important; }
+#program { background-image: linear-gradient(135deg, #12365a, #2f5f91) !important; }
+
+.transition, a, button, input, details, .social-icon { transition-property: all; transition-duration: 300ms; transition-timing-function: ease-in-out; }
+.reveal { opacity: 0; transform: translateY(24px); }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+.stagger-card:nth-child(2) { transition-delay: 100ms; }
+.stagger-card:nth-child(3) { transition-delay: 200ms; }
+.stagger-card:nth-child(4) { transition-delay: 300ms; }
+.facility-track { animation: facility-scroll 10s linear infinite; width: max-content; will-change: transform; }
+@media (max-width: 768px) { .facility-slide { flex-basis: 85%; } }
+#contact .text-muted { color: #d4dfef; }
+.facility-slide { flex: 0 0 31%; }
+.section-title-inline { white-space: nowrap; }
+@media (max-width: 768px) {
+  .hero { aspect-ratio: 1250 / 690; }
+  .hero-image { object-fit: contain; }
+}
+@media (min-width: 769px) {
+  #about .grid { grid-template-columns: 1.5fr 1fr; }
+  #about .grid > div:first-child { min-width: 0; }
+}
+
+footer img { background: transparent !important; }
+.footer-logo { filter: brightness(0) invert(1); }
+.facility-track:hover { animation-play-state: paused; }
+@keyframes facility-scroll {
+  0%, 12% { transform: translateX(0); }
+  20%, 32% { transform: translateX(-20%); }
+  40%, 52% { transform: translateX(-40%); }
+  60%, 72% { transform: translateX(-60%); }
+  80%, 92% { transform: translateX(-80%); }
+  100% { transform: translateX(0); }
+}
+.social-icon { display: inline-flex; width: 42px; height: 42px; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.18); border-radius: .5rem; color: #f8f4ee; }
+.social-icon:hover { color: #DF6B33; border-color: #DF6B33; transform: scale(1.2); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+@media (max-width: 640px) {
+  .facility-track { animation-duration: 26s; }
+}
