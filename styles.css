@@ -7,7 +7,6 @@ body { overflow-x: hidden; font-family: 'Be Vietnam Pro', Arial, sans-serif; }
 .bg-cobalt { background-color: #12365a !important; }
 #program, #campus-life, #register, #contact { background-color: #12365a !important; }
 #program { background-image: linear-gradient(135deg, #12365a, #2f5f91) !important; }
-
 .transition, a, button, input, details, .social-icon { transition-property: all; transition-duration: 300ms; transition-timing-function: ease-in-out; }
 .reveal { opacity: 0; transform: translateY(24px); }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
@@ -20,10 +19,14 @@ body { overflow-x: hidden; font-family: 'Be Vietnam Pro', Arial, sans-serif; }
 .facility-slide { flex: 0 0 31%; }
 .section-title-inline { white-space: nowrap; }
 @media (max-width: 768px) {
-  .hero { aspect-ratio: 1250 / 690; min-height: 0; }
-  .hero > picture { position: absolute; inset: 0; display: block; }
-  .hero-image { object-fit: contain; }
-  .hero > picture img { height: 100%; width: 100%; }
+  html, body { width: 100%; min-width: 0; overflow-x: hidden; }
+  main, section, footer { width: 100%; max-width: 100%; }
+  #about .grid { grid-template-columns: minmax(0, 1fr) !important; width: 100%; }
+  #about .grid > * { width: 100%; min-width: 0; }
+  .hero { width: 100%; aspect-ratio: 1250 / 690; min-height: 0; }
+  .hero > picture { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+  .hero-image { display: block; object-fit: cover; object-position: center; }
+  .hero > picture img { height: 100%; width: 100%; max-width: none; }
   .facility-track { animation-duration: 5s; }
   .facility-slide { min-width: calc(100vw - 2.5rem) !important; flex-basis: calc(100vw - 2.5rem); }
   .facility-slide .facility-image { height: 58vw; min-height: 210px; max-height: 330px; object-fit: cover; }
@@ -31,12 +34,10 @@ body { overflow-x: hidden; font-family: 'Be Vietnam Pro', Arial, sans-serif; }
 }
 #feePreview { cursor: zoom-in; }
 #consultModal.flex, #feeModal.flex { display: flex; }
-
 @media (min-width: 769px) {
   #about .grid { grid-template-columns: 1.5fr 1fr; }
   #about .grid > div:first-child { min-width: 0; }
 }
-
 footer img { background: transparent !important; }
 .footer-logo { filter: brightness(0) invert(1); }
 .facility-track:hover { animation-play-state: paused; }
@@ -50,11 +51,17 @@ footer img { background: transparent !important; }
 }
 .social-icon { display: inline-flex; width: 42px; height: 42px; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.18); border-radius: .5rem; color: #f8f4ee; }
 .social-icon:hover { color: #DF6B33; border-color: #DF6B33; transform: scale(1.2); }
+.facility-slide { overflow: hidden; }
+.facility-slide h3 { color: #e1b64a; }
+.facility-slide p { color: #fff; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
 }
-@media (max-width: 640px) {
-  .facility-track { animation-duration: 26s; }
+@media (max-width: 640px) { .facility-track { animation-duration: 26s; } }
+.footer-logo { border: 2px solid #fff; border-radius: 9999px; padding: 3px; }
+@media (max-width: 768px) {
+  .hero + section { margin-top: 0; }
+  .hero-content { position: relative; z-index: 2; }
 }
