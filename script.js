@@ -78,3 +78,26 @@ document.getElementById('newsletterForm')?.addEventListener('submit', (event) =>
   event.currentTarget.querySelector('input').value = '';
   alert('Đăng ký nhận thông tin thành công!');
 });
+
+const consultButton = document.getElementById('consultButton');
+const consultModal = document.getElementById('consultModal');
+const closeConsult = document.getElementById('closeConsult');
+const toggleConsult = (open) => consultModal?.classList.toggle('flex', open);
+consultButton?.addEventListener('click', () => toggleConsult(true));
+closeConsult?.addEventListener('click', () => toggleConsult(false));
+consultModal?.addEventListener('click', (event) => { if (event.target === consultModal) toggleConsult(false); });
+document.getElementById('consultForm')?.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const message = document.getElementById('consultMessage');
+  message.textContent = 'Cảm ơn bạn! Nhà trường sẽ liên hệ tư vấn sớm nhất.';
+  message.classList.remove('hidden');
+  event.currentTarget.reset();
+});
+
+const feeModal = document.getElementById('feeModal');
+document.getElementById('feePreview')?.addEventListener('click', () => feeModal?.classList.add('flex'));
+document.getElementById('closeFee')?.addEventListener('click', () => feeModal?.classList.remove('flex'));
+feeModal?.addEventListener('click', (event) => { if (event.target === feeModal) feeModal.classList.remove('flex'); });
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') { toggleConsult(false); feeModal?.classList.remove('flex'); }
+});

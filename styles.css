@@ -20,9 +20,18 @@ body { overflow-x: hidden; font-family: 'Be Vietnam Pro', Arial, sans-serif; }
 .facility-slide { flex: 0 0 31%; }
 .section-title-inline { white-space: nowrap; }
 @media (max-width: 768px) {
-  .hero { aspect-ratio: 1250 / 690; }
+  .hero { aspect-ratio: 1250 / 690; min-height: 0; }
+  .hero > picture { position: absolute; inset: 0; display: block; }
   .hero-image { object-fit: contain; }
+  .hero > picture img { height: 100%; width: 100%; }
+  .facility-track { animation-duration: 5s; }
+  .facility-slide { min-width: calc(100vw - 2.5rem) !important; flex-basis: calc(100vw - 2.5rem); }
+  .facility-slide .facility-image { height: 58vw; min-height: 210px; max-height: 330px; object-fit: cover; }
+  .fee-preview { height: 360px !important; object-fit: cover !important; object-position: top center; }
 }
+#feePreview { cursor: zoom-in; }
+#consultModal.flex, #feeModal.flex { display: flex; }
+
 @media (min-width: 769px) {
   #about .grid { grid-template-columns: 1.5fr 1fr; }
   #about .grid > div:first-child { min-width: 0; }
